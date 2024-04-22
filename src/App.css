@@ -1,42 +1,41 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+    --fs-sm: clamp(0.7rem, 0.35vi + 0.61rem, 0.89rem);
+    --fs-base: clamp(0.88rem, 0.57vi + 0.73rem, 1.19rem);
+    --fs-md: clamp(1.09rem, 0.89vi + 0.87rem, 1.58rem);
+    --fs-lg: clamp(1.37rem, 1.35vi + 1.03rem, 2.11rem);
+    --fs-xl: clamp(1.71rem, 2.01vi + 1.21rem, 2.81rem);
+    --fs-xxl: clamp(2.14rem, 2.93vi + 1.4rem, 3.75rem);
+    --fs-xxxl: clamp(2.67rem, 4.23vi + 1.61rem, 5rem);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    box-sizing: content-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggle-button {
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Ctext x="0" y="16" font-size="16"%3E📝%3C/text%3E%3C/svg%3E'), auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.intro-text {
+    font-size: var(--fs-xl);
 }
 
-.card {
-  padding: 2em;
+.instruction-text {
+    font-size: var(--fs-base);
 }
 
-.read-the-docs {
-  color: #888;
+.qt-text, .opt-text {
+    font-size: var(--fs-lg);
+}
+
+.border-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 255, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.res {
+    font-size: var(--fs-xxl);
+}
+
+.result-text {
+    font-size: var(--fs-lg);
 }
