@@ -24,8 +24,12 @@ body {
     font-size: var(--fs-base);
 }
 
-.qt-text, .opt-text {
-    font-size: var(--fs-lg);
+.num{
+    font-size: var(--fs-xxl);
+}
+
+.opt-text, .qt {
+    font-size: var(--fs-md);
 }
 
 .border-shadow {

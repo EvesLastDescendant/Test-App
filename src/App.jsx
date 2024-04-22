@@ -5,6 +5,8 @@ import IntroComponent from './components/intro'
 import TestComponent from './components/eval'
 import Result from './components/res'
 
+import Confetti from 'react-confetti'
+
 function App() {
   const [toTest, setToTest] = useState(false)
   const [userData, setUserData] = useState({
@@ -153,6 +155,7 @@ function App() {
               </>
               :
               <>
+                {testScore >=17 && <Confetti width={window.innerWidth} height={window.innerHeight} />}
                 <Result testScore={testScore} getProgressColor={getProgressColor} userData={userDataList} />
               </>
             }
