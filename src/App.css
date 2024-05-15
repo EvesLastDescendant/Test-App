@@ -9,7 +9,7 @@
 }
 
 body {
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 .toggle-button {
@@ -17,7 +17,7 @@ body {
 }
 
 .intro-text {
-    font-size: var(--fs-xl);
+    font-size: var(--fs-sm);
 }
 
 .instruction-text {
@@ -25,21 +25,17 @@ body {
 }
 
 .num{
-    font-size: var(--fs-xxl);
+    font-size: var(--fs-lg);
 }
 
 .opt-text, .qt {
-    font-size: var(--fs-md);
-}
-
-.border-shadow {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 255, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    font-size: var(--fs-base);
 }
 
 .res {
-    font-size: var(--fs-xxl);
+    font-size: var(--fs-lg);
 }
 
 .result-text {
-    font-size: var(--fs-lg);
+    font-size: var(--fs-md);
 }
