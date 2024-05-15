@@ -6,12 +6,12 @@ import TestComponent from './components/eval'
 import Result from './components/res'
 
 import Confetti from 'react-confetti'
+import CircularProgress from './components/progressbar'
 
 function App() {
   const [toTest, setToTest] = useState(false)
   const [userData, setUserData] = useState({
-    name: "",
-    gender: ""
+    name: ""
   })
   const [userDataList, setUserDataList] = useState([])
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -35,37 +35,40 @@ function App() {
     switch (true) {
       case score >= 0 && score <= 5:
         return (
-          <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-            <div className="h-1 bg-red-600" style={{ width: "20%" }}></div>
-          </div>
+          <>
+            <CircularProgress score={score} scorecolor={'red'} />
+            {/* <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
+              <div className="h-1 bg-red-600" style={{ width: "20%" }}></div>
+            </div> */}
+          </>
         )
       
       case score > 5 && score <= 10:
         return (
-          <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-            <div className="h-1 bg-blue-600" style={{ width: "40%" }}></div>
-          </div>
+          <>
+            <CircularProgress score={score} scorecolor={'red'} />
+          </>
         )
 
       case score > 10 && score <= 15:
         return (
-          <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-            <div className="h-1 bg-orange-600" style={{ width: "60%" }}></div>
-          </div>
+          <>
+            <CircularProgress score={score} scorecolor={'orange'} />
+          </>
         )
 
       case score > 15 && score <= 17:
         return (
-          <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-            <div className="h-1 bg-yellow-600" style={{ width: "80%" }}></div>
-          </div>
+          <>
+            <CircularProgress score={score} scorecolor={'yellow'} />
+          </>
         )
 
       default:
         return (
-          <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-            <div className="h-1 bg-green-600" style={{ width: "100%" }}></div>
-          </div>
+          <>
+            <CircularProgress score={score} scorecolor={'green'} />
+          </>
         )
     }
   }
@@ -74,12 +77,11 @@ function App() {
     
     e.preventDefault()
 
-    if(!userData.name, !userData.gender) return
+    if(!userData.name) return
 
     const newUserData = {
       id: Date.now(),
       name: userData.name,
-      gender: userData.gender
     }
 
     console.log(newUserData)
@@ -89,8 +91,7 @@ function App() {
     handleToggleToTest()
 
     setUserData({
-      name: "",
-      gender: ""
+      name: ""
     })
 
   }
@@ -132,7 +133,7 @@ function App() {
 
   return (
     <>
-      <div className='mx-auto w-full md:w-3/4 px-3 md:px-0 flex items-center justify-center h-screen bg-'>
+      <div className='mx-auto w-full md:w-3/4 px-3 md:px-0 flex items-center justify-center md:justify-end h-screen'>
         { !toTest ? 
           <IntroComponent 
             handleSubmit={handleSubmit} 
@@ -140,7 +141,7 @@ function App() {
             handleOnchange={handleOnchange}  
           />
           : 
-          <div className='text-white w-full md:w-3/4'>
+          <div className='text-white w-full md:w-3/4 flex flex-col justify-end'>
             {currentQuestion >= 0 && currentQuestion < testqt.length ?
               <>
                 <TestComponent 
@@ -148,10 +149,8 @@ function App() {
                   currentQuestion={currentQuestion}
                   answer={answer}
                   onAnswer={onAnswer}
+                  onNext={nextQuestion}
                 />
-                <div className="mt-5 flex justify-center">
-                  <button className='px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-700 hover:text-white font-bold hover:font-light' onClick={nextQuestion}>Next</button>
-                </div>
               </>
               :
               <>
