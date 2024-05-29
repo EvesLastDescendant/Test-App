@@ -11,7 +11,10 @@ import CircularProgress from './components/progressbar'
 function App() {
   const [toTest, setToTest] = useState(false)
   const [userData, setUserData] = useState({
-    name: ""
+    firstname: "",
+    lastname: "",
+    email: "",
+    techpath: "",
   })
   const [userDataList, setUserDataList] = useState([])
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -37,9 +40,6 @@ function App() {
         return (
           <>
             <CircularProgress score={score} scorecolor={'red'} />
-            {/* <div className="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
-              <div className="h-1 bg-red-600" style={{ width: "20%" }}></div>
-            </div> */}
           </>
         )
       
@@ -77,11 +77,14 @@ function App() {
     
     e.preventDefault()
 
-    if(!userData.name) return
+    if(!userData.firstname) return
 
     const newUserData = {
       id: Date.now(),
-      name: userData.name,
+      firstname: userData.firstname,
+      lastname: userData.lastname,
+      email: userData.email,
+      techpath: userData.techpath
     }
 
     console.log(newUserData)
@@ -91,7 +94,10 @@ function App() {
     handleToggleToTest()
 
     setUserData({
-      name: ""
+      firstname: "",
+      lastname: "",
+      email: "",
+      techpath: ""
     })
 
   }
@@ -101,6 +107,13 @@ function App() {
     setUserData((prev) => ({
       ...prev,
       [name] : value
+    }))
+  }
+
+  const handleSelectTech = (e) => {
+    setUserData((prev) => ({
+      ...prev,
+      techpath: e.target.value
     }))
   }
 
@@ -138,7 +151,8 @@ function App() {
           <IntroComponent 
             handleSubmit={handleSubmit} 
             userData={userData} 
-            handleOnchange={handleOnchange}  
+            handleOnchange={handleOnchange}
+            onSelect={handleSelectTech}  
           />
           : 
           <div className='text-white w-full md:w-3/4 flex flex-col justify-end'>
