@@ -18,7 +18,7 @@ const Result = (props) => {
                     </thead>
                 </table>
                 <div>Score: {props.testScore}</div>
-                <div className="mt-5 w-2/3">{props.getProgressColor(props.testScore)}</div>
+                <div className="mt-5 w-2/3">{props.getProgressColor(props.testScore)} </div>
             </div>
         </>
     )
