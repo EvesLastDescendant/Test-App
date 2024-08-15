@@ -146,7 +146,10 @@ function App() {
 
   return (
     <>
-      <div className='mx-auto w-full md:w-3/4 px-3 md:px-0 flex items-center justify-center md:justify-end h-screen'>
+      <div className='h-screen w-full flex justify-center items-center'>
+        <IntroComponent />
+      </div>
+      {/* <div className='mx-auto w-full md:w-3/4 px-3 md:px-0 flex items-center justify-center md:justify-end h-screen'>
         { !toTest ? 
           <IntroComponent 
             handleSubmit={handleSubmit} 
@@ -174,7 +177,7 @@ function App() {
             }
           </div>
         }
-      </div>
+      </div> */}
     </>
   )
 }
