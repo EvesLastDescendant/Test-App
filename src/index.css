@@ -21,9 +21,3 @@
     font-family: fac;
     src: url();
 } */
-
-body {
-    background-image: url('/layered-peaks-haikei.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}

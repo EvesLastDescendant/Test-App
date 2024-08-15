@@ -1,51 +1,31 @@
 /* eslint-disable react/prop-types */
-// import { useState, useEffect } from "react"
 
-import ReactCurvedText from "react-curved-text"
+import img  from '/imgs/student-1.png'
 
+const style = {
+    background: "url('/circle.svg')",
+    backgroundSize: 'cover'
+}
 const IntroComponent = (props) => {
-    // const [images, setImages] = useState([
-    //     { id: 1, src: '/imgs/student-1.png', alt: 'Image 1', display: 'none' },
-    //     { id: 2, src: '/imgs/student-2.png', alt: 'Image 2', display: 'none' },
-    //     { id: 3, src: '/imgs/student-3.png', alt: 'Image 3', display: 'none' }
-    // ])
-    
-    // useEffect(() => {
-    //     images.forEach((image, index) => {
-    //         setTimeout(() => {
-    //             const updatedImages = [...images];
-    //             updatedImages[index].display = 'block';
-    //             setImages(updatedImages);
-    //         }, (index + 1) * 1000);
-    //     });
-    // });
-
     return (
         <>
-            <div className='w-3/4 h-1/2 flex flex-col md:flex-row items-center justify-between'>
-                <div className="relative flex flex-col items-center">
-                    <div><img src="/imgs/student-1.png" alt="student-test" className="absolute right-0 md:right-1" /></div>
-                    <div>
-                        <ReactCurvedText 
-                            width={200}
-                            height={200}
-                            cx={100}
-                            cy={100}
-                            rx={70}
-                            ry={70}
-                            startOffset={29}
-                            reversed={false}
-                            text="SOFTWARE DEV CBT"
-                            textProps={{style: {fontSize: 'var(--fs-lg)'}}}
-                            textPathProps={{fill: '#1d4ed8'}}
-                            tspanProps={{dy: 29}}
-                            ellipseProps={null}
-                            svgProps={null}
-                        />
-                    </div>
+            <div className="w-4/5 p-10 shadow-lg shadow-slate-400 rounded-lg flex flex-col md:flex-row justify-center md:justify-between items-center" style={style}>
+                <div className="w-full h-full md:w-1/2 flex">
+                    <img src={img} alt="img" width={350} />
                 </div>
-                
-                <div className="w-full md:w-3/5 flex flex-col gap-5">
+                <div className="w-full h-full md:w-1/2">
+                    <form onSubmit={props.handleSubmit} className="shadow-md h-full rounded-md py-10 px-5">
+                        <div >
+                            <label htmlFor="firstname" className='font-bold'>Firstname: </label>
+                            <input type="text" name="firstname" id="firstname" placeholder="first name" className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"/>
+                        </div>
+                        <div>
+                            <label htmlFor="lastname" className='font-bold'>Lastname: </label>
+                            <input type="text" name="lastname" id="lastname" placeholder='last name' className='w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'/>
+                        </div>
+                    </form>
+                </div>
+                {/* <div className="w-full md:w-3/5 flex flex-col gap-5">
                     <p className="text-blue-400 instruction-text">Fill in form then proceed</p>
                     <form className="p-4 shadow-lg bg-zinc-100 rounded-md" onSubmit={props.handleSubmit}>
                         <div className="flex flex-col justify-between items-center p-4">
@@ -71,7 +51,7 @@ const IntroComponent = (props) => {
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> */}
             </div>
         </>
     )

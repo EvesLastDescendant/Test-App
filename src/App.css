@@ -12,6 +12,11 @@ body {
     box-sizing: border-box;
 }
 
+.header {
+    background: url("/circle.svg");
+    background-size: cover;
+}
+
 .intro-text {
     font-size: var(--fs-sm);
 }
